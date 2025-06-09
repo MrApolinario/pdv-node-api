@@ -6,9 +6,15 @@ const clientRouter = require("./routeClients");
 const ordersRouter = require("./routeOrders");
 const { validacaoToken } = require("../middlewares/auth");
 
+// Rota raiz simples para teste
+router.get("/", (req, res) => {
+  res.send("API rodando!");
+});
+
 router.use("/login", loginRoute);
 router.use("/categoria", routeCategory);
-// todas as rotas a partir daqui tem que ser validadas  com token
+
+// todas as rotas a partir daqui tem que ser validadas com token
 router.use("/usuario", usersRoute);
 router.use("/produto", productsRoute);
 router.use("/cliente", clientRouter);

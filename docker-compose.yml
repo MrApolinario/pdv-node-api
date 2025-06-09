@@ -2,25 +2,27 @@ version: '3.9'
 services:
   database:
     image: postgres
-    container_name: database_fiveDevs
+    container_name: database_MrApolinario
     restart: always
     ports:
       - 5432:5432
     environment: 
-      - POSTGRES_USER=fiveDevs
-      - POSTGRES_PASSWORD=fiveDevs123
-      - POSTGRES_DB=fiveDevs
+      - POSTGRES_USER=MrApolinario
+      - POSTGRES_PASSWORD=MrApolinarioTest123
+      - POSTGRES_DB=MrApolinario
     volumes:
       - pgdata:/data/postgres
     network_mode: host
+
   app:
     build: .
-    container_name: fiveDevs
+    container_name: MrApolinarioApp
     ports:
       - 3000:3000
     volumes:
       - .:/user/app
     network_mode: host
+
 volumes:
   pgdata:
     driver: local
